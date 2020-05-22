@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+        <title>Base64 Site - Render Base 64 Sites</title>
+    </head>
+    <body>
+        <h1>Base64 Sites</h1>
+        <p>
+        Have you ever wanted to encode a tiny website in base64 but needed the link to be shared in mobile or otherwise handled by devices that only know about well-formed URLs? Well, me too.
+        </p>
+        <p>
+        This site is my answer to that problem.
+        </p>
+        <h2>
+            How to use
+        </h2>
+        <form id="content-form" action="/render">
+            <label>
+                Enter your HTML content here
+            </label>
+            <textarea name="content" id="content-textarea" rows="15" style="width: 100%;"></textarea>
+            <hr/>
+            <button type="submit" id="submit">Submit</button>
+        </form>
+        <h2>How it works</h2>
+        <p>
+        Inspect this document and check out the contents of onSubmit or copy and paste the following in the developer console: <pre>document.getElementById('logic').text</pre>
+        </p>
+        <ol>
+            <li>Base64 encode the HTML string and add the <code>data:text/html;base64,</code> prefix.</li>
+            <li>URI Encode the base64 string with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent"><code>encodeURIComponent</code></a></li>
+            <li>Pass URI encoded string to <a href="/render"><code>/render</code></a> as the <code>context</code> query param.</li>
+            <li>Profit?</li>
+        </ol>
+        <footer>
+            Made by @fidiego | <a href="//github.com/fidiego">GitHub</a> | <a href="//twitter.com/fidiego">Twitter</a>
+        </footer>
+        <script id="logic">
+            const onSubmit = function() {
+                var ta = document.getElementById('content-textarea');
+                var html = ta.value;
+                // TODO: minify HTML here
+                var b64EncodedString = 'data:text/html;base64,' + btoa(html);
+                var uriEncodedString = encodeURIComponent(b64EncodedString);
+                console.debug(uriEncodedString);
+                window.location = '/render?content=' + uriEncodedString;
+            };
+            (function(){
+                console.info('Document Ready: registering Event Listener')
+                var form = document.getElementById('content-form')
+                form.addEventListener('submit', function(e){
+                    e.preventDefault();
+                    console.log('handling sumission')
+                    onSubmit()
+                })
+            })()
+        </script>
+    </body>
+</html>

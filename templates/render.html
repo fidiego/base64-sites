@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+{% if content %}
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Base64 Site - Render Base 64 Sites</title>
+
+            <style>body,iframe{width: 100vw; min-height: 100vh; padding: 0; margin: 0;}</style>
+        </head>
+        <body>
+            <iframe src="{{content}}" id="content"/>
+        </body>
+    </html>
+{% else %}
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+            <title>Base64 Site - Render Base 64 Sites</title>
+        </head>
+        <body>
+            <h1>No Content Provided</h1>
+            <p>
+            Redirecting you to the <a href="/">homepage</a>.
+            </p>
+        </body>
+    </html>
+{% endif %}
