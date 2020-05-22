@@ -1,9 +1,9 @@
-import logging
+import time
 
 from starlette.applications import Starlette
+from starlette.config import environ
+from starlette.responses import JSONResponse
 from starlette.routing import Route
-from starlette.routing import Route, Mount
-from starlette.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
 
 
@@ -11,7 +11,7 @@ templates = Jinja2Templates(directory="templates")
 
 
 async def ping(request):
-    return JSONResponse({"success": True, "time": int(time.now())})
+    return JSONResponse({"success": True, "time": int(time.time())})
 
 
 async def index(request):
@@ -25,4 +25,10 @@ async def render(request):
     )
 
 
-app = Starlette(debug=True, routes=[Route("/", index), Route("/render", render)])
+DEBUG = environ.get('DEBUG', 'False').strip().lower() == 'true'
+app = Starlette(
+    debug=DEBUG,
+    routes=[
+        Route("/", index),
+        Route("/render", render)
+    ])
