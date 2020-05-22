@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 honcho = "*"
+flake8 = "*"
 
 [packages]
 starlette = "*"
