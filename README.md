@@ -1,6 +1,6 @@
 # Base64 Sites
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fidiego/base64-sites)
 
 ## What is this thing?
 
