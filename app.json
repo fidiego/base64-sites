@@ -1,0 +1,16 @@
+{
+  "name": "Base64 Sites",
+  "description": "A light utility to render Base64 Encoded HTML Websites.",
+  "repository": "https://github.com/fidiego/base64-sites",
+  "keywords": ["html", "website", "tiny", "base64", "python", "starlette"],
+  "env": {
+    "HOST": {
+      "description": "The host to bind on.",
+      "value": "0.0.0.0"
+    },
+    "DEBUG": {
+      "description": "Wether or not to show debug messages.",
+      "value": false
+    }
+  }
+}
