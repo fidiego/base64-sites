@@ -43,10 +43,9 @@
             const onSubmit = function() {
                 var ta = document.getElementById('content-textarea');
                 var html = ta.value;
-                // TODO: minify HTML here
-                var b64EncodedString = 'data:text/html;base64,' + btoa(html);
+                var htmlTrimmed = html.trim().split('\n').map(function(row) {return row.trim()}).join('') // TODO: use a proper minifier perhaps
+                var b64EncodedString = 'data:text/html;base64,' + btoa(htmlTrimmed);
                 var uriEncodedString = encodeURIComponent(b64EncodedString);
-                console.debug(uriEncodedString);
                 window.location = '/render?content=' + uriEncodedString;
             };
             (function(){
