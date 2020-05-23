@@ -10,7 +10,7 @@
     },
     "DEBUG": {
       "description": "Wether or not to show debug messages.",
-      "value": "false"
+      "value": "False"
     }
   }
 }
