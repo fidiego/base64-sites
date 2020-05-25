@@ -50,7 +50,7 @@
     <li>The <a href="/render"><code>/render</code></a> endpoint simply returns an iframe with the base64 string as the src.
     </li>
   </ol>
-  <h3>But why though?</h3>
+  <h3>But <i>why</i> though?</h3>
   <p>I often want to send very small pieces of information to a co-worker, some of which is best displayed in tables. I have some python scripts that pull data and generate these neat tables which I prefer to print to the terminal (shout out to <a href="https://github.com/astanin/python-tabulate">tabulate</a>). But, if I need to share this information, HTML is a much better format. The tabulate library has an HTML output option, but I don't want to set up hosting for such ephemeral information. It's easy to pipe the HTML to a script that bas64 encodes it and adds the <code>'data:text/html;base64,'</code> prefix. The resulting string can then be opened in the browser.</p>
   <p>However! This is not the case on mobile. The string isn't recognized as a URL and the workarounds are just too many steps (open in Firefox Focus or copy and paste into a mobile Browser). But if I pass the base64 string as a query parameter to an endpoint that simply returns it as the src in an iframe (as suggested in <a href="https://stackoverflow.com/a/670509">this SO Answer</a>), we're in business. I can now send these one-offs (that dont' require persistence) to folks on mobile devices and they can open them as links.</p>
   <hr>
