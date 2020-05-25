@@ -35,4 +35,7 @@ pipenv run honcho -f Procfile.dev start
 
 ## Other Info
 
-Built with python3 and <a href="https://www.starlette.io/">starlette</a>.
+- Built with python3 and <a href="https://www.starlette.io/">starlette</a>.
+- HTML formatted with <a href="http://www.html-tidy.org/">tidy</a>.
+- jJS formatted with <a href="https://prettier.io/">prettier</a>.
+- Python formatted with <a href="https://pypi.org/project/black/">Black</a>.
