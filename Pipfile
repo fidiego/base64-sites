@@ -13,6 +13,7 @@ uvicorn = "*"
 gunicorn = "*"
 aiofiles = "*"
 jinja2 = "*"
+htmlmin = "*"
 
 [requires]
 python_version = "3.7"
