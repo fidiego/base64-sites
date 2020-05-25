@@ -31,7 +31,7 @@ pipenv run honcho -f Procfile.dev start
 
 ## TODO
 
-- [] figure out css for `/render` endpoint. Get rid of the excess space so iframe fills space with no scroll on body or html.
+- [ ] figure out css for `/render` endpoint. Get rid of the excess space so iframe fills space with no scroll on body or html.
 
 ## Other Info
 
