@@ -12,6 +12,15 @@
   <header>
     <h1>Base64 Site</h1>
     <p>Turn HMTL into a link that <i>is</i> the site.</p>
+    <nav>
+        <a href="#what">What</a>
+        /
+        <a href="#why">Why</a>
+        /
+        <a href="#how">How</a>
+        /
+        <a href="//github.com/fidiego/base64-sites">Source</a>
+    </nav>
   </header>
   <section id="try-it">
     <h2>Try It</h2>
@@ -21,12 +30,12 @@
     </form>
   </section>
   <hr>
-  <h2>What does it do?</h2>
+  <h2 id="what">What does it do?</h2>
   <p>Takes HTML and converts it to base64. Offers a <a href="/render"><code>/render</code></a> endpoint to render the base64 encoded HTML in an iframe.</p>
-  <h2>Why</h2>
+  <h2 id="why">Why</h2>
   <p>To make tiny websites where the URL effectively <i>is</i> the website. The strings produced can be pasted into a URL bar directly. This is great if you're sharing content that doesn't merit hosting, for example an ephemeral HTML report.</p>
   <p>A problem arises when someone is on their phone since most messaging apps won't recognize the string as a URL. We address that by providing a <a href="/render"><code>/render</code></a> endpoint that takes a <code>context</code> attribute. This endpoint returns an iframe with the base64 string as the value for the <code>src</code> attribute. The link can be shared and, given it's a valid url, can be opened on mobile devices.</p>
-  <h2>How it works</h2>
+  <h2 id="how">How it works</h2>
   <p>Browsers can render base64 encoded content. Base64 encoding is often used for images or svgs in css since the image can be encoded in the css file reducing the need for additional requests [<a href="https://css-tricks.com/data-uris/">1</a>].</p>
   <p>HTML can be similarly encoded. You can inspect this document and check out the contents of onSubmit or simply copy and paste the snippet below in the developer console to see the code.</p>
   <pre>document.getElementById('logic').text</pre>
