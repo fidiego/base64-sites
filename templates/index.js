@@ -23,6 +23,7 @@ const generateResults = function(response) {
     '<p>Or use <a href="/render?content=' +
     encodeURIComponent(response.base64_string) +
     '">this link</a> on a mobile device.</p>';
+  // append results
   section.appendChild(links);
 };
 
@@ -37,7 +38,6 @@ const onSubmit = function() {
   })
     .then(function(response) {
       response.json().then(function(resp) {
-        console.log(resp);
         generateResults(resp);
       });
     })
@@ -45,12 +45,12 @@ const onSubmit = function() {
       console.error(err);
     });
 };
+
 (function() {
   console.info('Document Ready: registering Event Listener');
   var form = document.getElementById('content-form');
   form.addEventListener('submit', function(e) {
     e.preventDefault();
-    console.log('handling sumission');
     onSubmit();
   });
 })();
