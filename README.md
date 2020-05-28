@@ -6,21 +6,27 @@
 
 Have you ever wanted to encode a tiny website in base64 but needed the link to be shared in mobile or otherwise handled by devices that only know about well-formed URLs? Well, me too.
 
-Try it out <a href="//base64-sites.herokuapp.com">here</a>.
+Try it out [here](//base64-sites.herokuapp.com).
+
+## Other Info
+
+- Built with python3 and [starlette](https://www.starlette.io/).
+- HTML formatted with [tidy](http://www.html-tidy.org/).
+- JS formatted with [prettier](https://prettier.io/).
+- Python formatted with [Black](https://pypi.org/project/black/).
 
 ## Dev Setup
 
 **Install Dependencies**
 
 ```
-pipenv install
+pipenv install --dev
 ```
 
-**Make a `.env` file with the following variables:**
+**Make a `.env` file**
 
 ```
-HOST=127.0.0.1
-PORT=8000
+cp env.default .env
 ```
 
 **Run with honcho**
@@ -32,10 +38,4 @@ pipenv run honcho -f Procfile.dev start
 ## TODO
 
 - [ ] figure out css for `/render` endpoint. Get rid of the excess space so iframe fills space with no scroll on body or html.
-
-## Other Info
-
-- Built with python3 and <a href="https://www.starlette.io/">starlette</a>.
-- HTML formatted with <a href="http://www.html-tidy.org/">tidy</a>.
-- jJS formatted with <a href="https://prettier.io/">prettier</a>.
-- Python formatted with <a href="https://pypi.org/project/black/">Black</a>.
+- [ ] make a js only version that can be deployed on netlify
